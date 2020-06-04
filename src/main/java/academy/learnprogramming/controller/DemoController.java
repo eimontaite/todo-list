@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Slf4j
@@ -32,10 +33,11 @@ public class DemoController {
 	}
 
 	@GetMapping("welcome")
-	public String welcome(Model model) {
+	public String welcome(@RequestParam String user, @RequestParam int age, Model model) {
 		// prefix + name + suffix
 		// /WEB-INF/view/welcome.jsp
-		model.addAttribute("helloMessage", demoService.getHelloMessage("Aiste"));
+		model.addAttribute("helloMessage", demoService.getHelloMessage(user));
+		model.addAttribute("age", age);
 		return "welcome";
 	}
 
