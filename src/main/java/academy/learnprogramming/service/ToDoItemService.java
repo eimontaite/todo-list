@@ -6,6 +6,7 @@ import academy.learnprogramming.model.ToDoItem;
 import java.util.List;
 
 public interface ToDoItemService {
+
 	void addItem(ToDoItem itemToCreate);
 
 	void removeItem(int id);
@@ -14,5 +15,5 @@ public interface ToDoItemService {
 
 	void updateItem(ToDoItem itemToUpdate);
 
-	List<ToDoItem> getData();
+	ToDoData getToDoData();
 }
